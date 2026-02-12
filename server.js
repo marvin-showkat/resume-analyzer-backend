@@ -9,7 +9,12 @@ const PDFDocument = require("pdfkit");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://resume-analyzer-frontend-gamma.vercel.app",
+    "http://localhost:3000"
+  ],
+}));
 app.use(express.json({ limit: "2mb" }));
 
 const upload = multer({
